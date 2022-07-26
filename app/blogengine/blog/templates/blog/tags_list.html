@@ -1,0 +1,14 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block content %}
+    <h1 class="mb-5">Tags:</h1>
+    {% for tag in tags %}
+                        {{ tag.title }}
+
+
+    {% endfor %}
+{% endblock %}
+
+{% block title %}
+    Tags list - {{ block.super }}
+{% endblock %}
