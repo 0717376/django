@@ -3,8 +3,8 @@
 {% block content %}
     <h1 class="mb-5">Tags:</h1>
     {% for tag in tags %}
-                        {{ tag.title }}
-
+        <p>{{ tag.title }}</p>
+        <a href="{{ tag.get_absolute_url }}" class="btn btn-light">Read</a>
 
     {% endfor %}
 {% endblock %}
