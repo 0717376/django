@@ -1,16 +1,14 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-    Tag Create - {{ block.super }}
+    INN Check - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-
-    <form action="{% url 'tag_create_url' %}" method="post">
-        {% csrf_token %}
-
-        {% for field in form %}
-            <div class="form-group">
+    <form action="{% url 'bondins_url' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
                 {% if field.errors %}
                     <div class="alert alert-danger col-4">
                     {{ field.errors }}
@@ -22,11 +20,8 @@
 
             </div>
 
-        {% endfor %}
+            {% endfor %}
 
-
-
-        <button type="submit" class="btn btn-primary">Create Tag</button>
-    </form>
-
+        <button type="submit" class="btn btn-primary">Check inn</button>
+            
 {% endblock %}

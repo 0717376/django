@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>
         {% block title %}
             Blog Engine
@@ -14,10 +14,9 @@
     </title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg bg-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Django</a>
+    <div class="container">
+        <a class="navbar-brand" href="#"><span style="color:blue">M</span>Project</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,13 +24,21 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'posts_list_url' %}">Posts</a>
+                    <a class="nav-link  {% if request.resolver_match.view_name  == 'posts_list_url' %}
+       active
+     {% endif %}" aria-current="page" href="{% url 'posts_list_url' %}">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'tags_list_url' %}">Tags</a>
+                    <a class="nav-link  {% if request.resolver_match.view_name  == 'tags_list_url' %}
+                                        active
+                                        {% endif %}"
+                       aria-current="page" href="{% url 'tags_list_url' %}">Tags
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link {% if request.resolver_match.view_name  == 'bondins_url' %}
+       active
+     {% endif %}" aria-current="page" href="{% url 'bondins_url' %}">Credit check</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
@@ -45,15 +52,18 @@
     </div>
 </nav>
 
+
 <div class="container mt-5">
     <div class="row">
-        <div class="col-12 offset-md-1">
+        <div class="col-6 offset-md-2">
             {% block content %}
-            The is no any content for you
+                The is no any content for you
             {% endblock %}
-        </di
+            </di
+        </div>
     </div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
