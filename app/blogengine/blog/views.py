@@ -20,7 +20,8 @@ class PostDetail(ObjectDetailMixin, View):
     template = 'blog/post_detail.html'
     # def get(self, request, slug):
     #     # post = Post.objects.get(slug__iexact=slug) - это то, как было ранее. Ниже новое через get_object
-    #     post = get_object_or_404(Post, slug__iexact=slug)
+    #     post = get_object_or_404(Post, slug__iexact=slug) 
+    #     ещё комментарий
     #     return render(request, 'blog/post_detail.html/', context={'post': post})
 
 class PostCreate(CreateMixin, View):
